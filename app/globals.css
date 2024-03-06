@@ -126,12 +126,12 @@ a:hover {
   background-color: #f0f0f0 !important;
 }
 
-input{
+input,select{
   outline: none;
   box-shadow: none;
   border: 1px solid #f0f0f0 !important;
 }
-input:active, input:focus{
+input:active, input:focus, select:active, select:focus{
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid #f26522 !important;
@@ -253,4 +253,11 @@ ul{
   font-weight: 800;
   letter-spacing: .07rem;
   text-shadow: 1px 1px #000;
+}
+
+.card-img-top{
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }

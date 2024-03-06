@@ -5,11 +5,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-white py-3 shadow-lg sticky-top">
       <div className="container">
         <a className="navbar-brand" href="#">
-          <img
-            src="/empire-canal-logo.png"
-            alt="Logo of Empire Canals, a community nestled between the Welland Canal"
-            className="img-fluid"
-          />
+          Labourlyy
         </a>
         <button
           className="navbar-toggler nav-small"
@@ -35,39 +31,18 @@ export default function Navbar() {
               </Link>
             </li> */}
             <li className="nav-item">
-              <Link className="nav-link" href="#renderings">
-                Renderings
+              <Link className="nav-link" href="/">
+                About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#plans">
-                Plans & Pricing
+              <Link className="nav-link" href="/">
+                How it Works ?
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#location">
-                Location
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="btn my-2 my-sm-0 ms-md-3 d-flex text-dark"
-                href="telto:16474024100"
-              >
-                <span
-                  className="d-flex flex-column justify-content-start"
-                  id="utility__phone-msg"
-                >
-                  <b id="utility__phone-number text-dark">(647) 402‑4100</b>
-                  <span className="d-block travel__expert fs-vsmall text-dark">
-                    Call your Home Specialists
-                  </span>
-                </span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="btn btn-lg btn-register shadow" href="#contact">
-                Register Now
+              <Link className="btn btn-lg btn-register shadow" href="/">
+                Find Your Labour Now
                 <img
                   src="/arrow-right.svg"
                   alt="right arrow"
