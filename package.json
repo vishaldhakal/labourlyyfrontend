@@ -1,0 +1,25 @@
+{
+  "name": "empirecanals",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "next": "14.1.1",
+    "nodemailer": "^6.9.11",
+    "react": "^18",
+    "react-dom": "^18",
+    "resend": "^3.2.0",
+    "sweetalert": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.24",
+    "@types/react": "18.2.62",
+    "typescript": "5.3.3"
+  }
+}
