@@ -46,7 +46,7 @@ const SearchPage = () => {
                     <div class="col-md-4 mb-4">
                       <div class="card">
                         <img
-                          src={"https://labourlyy.onrender.com" + result.avatar}
+                          src="/4-Labour.jpg"
                           class="card-img-top"
                           alt="Labour Avatar"
                         />
