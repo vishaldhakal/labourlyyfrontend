@@ -1,5 +1,5 @@
 {
-  "name": "empirecanals",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,17 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
-    "next": "14.1.1",
-    "nodemailer": "^6.9.11",
-    "react": "^18",
-    "react-dom": "^18",
-    "resend": "^3.2.0",
-    "sweetalert": "^2.1.2"
-  },
-  "devDependencies": {
-    "@types/node": "20.11.24",
-    "@types/react": "18.2.62",
-    "typescript": "5.3.3"
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.10.6",
+    "typeface-montserrat": "^1.1.13"
   }
 }

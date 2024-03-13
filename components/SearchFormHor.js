@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-const SearchForm = ({ onSubmit }) => {
+const SearchFormHor = ({ onSubmit }) => {
   const [minCost, setMinCost] = useState("");
   const [maxCost, setMaxCost] = useState("");
   const [workerType, setWorkerType] = useState("All");
@@ -13,7 +13,6 @@ const SearchForm = ({ onSubmit }) => {
     onSubmit({ minCost, maxCost, requiredExpertise, workerType });
   };
 
-  //fetch work cateogries
   useEffect(() => {
     fetch(
       "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app/api/work-category/"
@@ -28,7 +27,7 @@ const SearchForm = ({ onSubmit }) => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="row row-cols-5 gx-2">
       <div className="mb-3 form-floating">
         <select
           type="text"
@@ -92,11 +91,11 @@ const SearchForm = ({ onSubmit }) => {
           Required Expertise
         </label>
       </div>
-      <button type="submit" className="btn btn-register btn-lg w-100">
+      <button type="submit" className="btn btn-register2 mb-3">
         Search
       </button>
     </form>
   );
 };
 
-export default SearchForm;
+export default SearchFormHor;

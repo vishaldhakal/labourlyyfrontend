@@ -1,12 +1,42 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import swal from "sweetalert";
 
 export default function Navbar() {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const handleLogout = (e) => {
+    e.preventDefault();
+    swal("Are you sure you want to logout?", {
+      buttons: {
+        cancel: "No",
+        catch: {
+          text: "Yes",
+          value: "catch",
+        },
+      },
+    }).then((value) => {
+      switch (value) {
+        case "catch":
+          localStorage.removeItem("token");
+          setToken(null);
+          break;
+        default:
+          swal("Your are still logged in");
+      }
+    });
+  };
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg bg-white py-3 shadow-lg sticky-top">
+    <nav className="navbar navbar-expand-lg bg-white py-1 shadow-lg sticky-top">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          Labourlyy
-        </a>
+        <Link className="navbar-brand" href="/">
+          <img src="/logo.svg" alt="" className="img-fluid small-img" />
+        </Link>
         <button
           className="navbar-toggler nav-small"
           type="button"
@@ -31,8 +61,8 @@ export default function Navbar() {
               </Link>
             </li> */}
             <li className="nav-item">
-              <Link className="nav-link" href="/">
-                About
+              <Link className="nav-link" href="/workers">
+                All Workers
               </Link>
             </li>
             <li className="nav-item">
@@ -40,16 +70,49 @@ export default function Navbar() {
                 How it Works ?
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="btn btn-lg btn-register shadow" href="/">
-                Find Your Labour Now
-                <img
-                  src="/arrow-right.svg"
-                  alt="right arrow"
-                  className="img-fluid rarr"
-                />
-              </Link>
-            </li>
+            {token ? (
+              <>
+                <li className="nav-item">
+                  <Link className="btn btn-lg shadow nodec" href="/">
+                    Bookings
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-lg bg-dark nodec text-white shadow"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                    <img
+                      src="/arrow-right.svg"
+                      alt="right arrow"
+                      className="img-fluid rarr"
+                    />
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="btn btn-lg shadow nodec" href="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="btn btn-lg bg-dark nodec text-white shadow"
+                    href="/signup"
+                  >
+                    Signup
+                    <img
+                      src="/arrow-right.svg"
+                      alt="right arrow"
+                      className="img-fluid rarr"
+                    />
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
