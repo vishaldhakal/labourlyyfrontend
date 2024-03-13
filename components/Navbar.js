@@ -4,7 +4,7 @@ import Link from "next/link";
 import swal from "sweetalert";
 
 export default function Navbar() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(null);
   const handleLogout = (e) => {
     e.preventDefault();
     swal("Are you sure you want to logout?", {
