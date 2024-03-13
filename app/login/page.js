@@ -38,15 +38,11 @@ export default function Login() {
     var configg = {
       method: "POST",
       credentials: "include",
-      url:
-        "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app" +
-        `/api/api-token-auth/`,
+      url: "https://labourlyy.onrender.com" + `/api/api-token-auth/`,
       headers: { "Content-Type": "application/json" },
       data: payload,
     };
-    console.log(
-      "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app"
-    );
+    console.log("https://labourlyy.onrender.com");
     axios(configg)
       .then((res) => {
         if (res.data.token != undefined) {

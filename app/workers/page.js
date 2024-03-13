@@ -8,21 +8,18 @@ function AllJobs() {
   const handleSubmit = (formData) => {
     //fetch without cors issue
     console.log(formData);
-    fetch(
-      "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app/api/match-laborers/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          min_cost_per_day: formData.minCost,
-          max_cost_per_day: formData.maxCost,
-          required_expertise: formData.requiredExpertise,
-          work_category: formData.workerType,
-        }),
-      }
-    )
+    fetch("https://labourlyy.onrender.com/api/match-laborers/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        min_cost_per_day: formData.minCost,
+        max_cost_per_day: formData.maxCost,
+        required_expertise: formData.requiredExpertise,
+        work_category: formData.workerType,
+      }),
+    })
       .then((response) =>
         response.json().then((data) => {
           setSearchResults(data);
@@ -34,9 +31,7 @@ function AllJobs() {
   };
 
   useEffect(() => {
-    fetch(
-      "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app/api/labours/"
-    )
+    fetch("https://labourlyy.onrender.com/api/labours/")
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data);
@@ -50,14 +45,11 @@ function AllJobs() {
     if (image === null) {
       return "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png";
     } else {
-      //image contains http return image else add https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app
+      //image contains http return image else add https://labourlyy.onrender.com
       if (image.includes("http")) {
         return image;
       }
-      return (
-        "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app" +
-        image
-      );
+      return "https://labourlyy.onrender.com" + image;
     }
   }
 

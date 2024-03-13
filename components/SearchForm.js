@@ -15,9 +15,7 @@ const SearchForm = ({ onSubmit }) => {
 
   //fetch work cateogries
   useEffect(() => {
-    fetch(
-      "https://af6b-2404-7c00-44-8d8a-4ba-f42d-16d1-4c8b.ngrok-free.app/api/work-category/"
-    )
+    fetch("https://labourlyy.onrender.com/api/work-category/")
       .then((response) => response.json())
       .then((data) => {
         setWorkerTypes(data);
