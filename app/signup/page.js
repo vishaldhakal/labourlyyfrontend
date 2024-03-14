@@ -42,6 +42,8 @@ export default function Register() {
       email: credentials.email,
       password: credentials.password,
       password2: credentials.password2,
+      phone_no: credentials.phone_no,
+      address: credentials.address,
     });
     e.preventDefault();
     let isEmpty = false;
