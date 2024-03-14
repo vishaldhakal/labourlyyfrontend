@@ -93,8 +93,7 @@ function Home() {
       <div className="container">
         {searchResults && (
           <h5 className="fw-bold main-subtitle2">
-            {searchResults.length} Results found for your serach of workers with
-            cost Rs 1000 to Rs 5000 per day
+            {searchResults.length} Results found for your serach of workers
           </h5>
         )}
         <div className="row row-cols-1 row-cols-md-4 mt-4">
