@@ -1,6 +1,7 @@
 "use client";
 import SearchForm from "@/components/SearchForm";
 import { useState } from "react";
+import Link from "next/link";
 
 function Home() {
   const [searchResults, setSearchResults] = useState(null);
@@ -188,7 +189,7 @@ function Home() {
               Explore by <span className="text-mine">categories</span>
             </div>
             <div className="col text-end">
-              <a href="alljobs"> Show all jobs &rarr;</a>
+              <Link href="/workers"> Show all jobs &rarr;</Link>
             </div>
           </div>
           <div className="row">
