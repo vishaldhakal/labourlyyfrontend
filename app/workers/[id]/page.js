@@ -13,7 +13,7 @@ async function getData(id) {
   return res.json();
 }
 
-async function getLabours(id) {
+async function getLabours() {
   const res = await fetch("https://labourlyy.onrender.com/api/labours/", {
     next: { revalidate: 10 },
   });
@@ -33,7 +33,6 @@ const page = async ({ params }) => {
     if (image === null) {
       return "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png";
     } else {
-      //image contains http return image else add https://labourlyy.onrender.com
       if (image.includes("http")) {
         return image;
       }

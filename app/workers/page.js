@@ -1,13 +1,45 @@
 "use client";
 import SearchFormHor from "@/components/SearchFormHor";
 import { useEffect, useState } from "react";
+import swal from "sweetalert";
 
 function AllJobs() {
   const [searchResults, setSearchResults] = useState(null);
 
   const handleSubmit = (formData) => {
-    //fetch without cors issue
-    console.log(formData);
+    if (formData.minCost === "" || formData.maxCost === "") {
+      swal({
+        title: "Error",
+        text: "Please enter the cost range",
+        icon: "error",
+      });
+      return;
+    }
+    if (formData.minCost > formData.maxCost) {
+      swal({
+        title: "Error",
+        text: "Minimum cost cannot be greater than maximum cost",
+        icon: "error",
+      });
+      return;
+    }
+    if (formData.requiredExpertise === "") {
+      swal({
+        title: "Error",
+        text: "Please enter the expertise level",
+        icon: "error",
+      });
+      return;
+    }
+    if (formData.workerType === "") {
+      swal({
+        title: "Error",
+        text: "Please enter the worker type",
+        icon: "error",
+      });
+      return;
+    }
+
     fetch("https://labourlyy.onrender.com/api/match-laborers/", {
       method: "POST",
       headers: {

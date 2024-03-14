@@ -9,7 +9,6 @@ import swal from "sweetalert";
 export default function Register() {
   let route = useRouter();
   const [registererror, setRegistererror] = useState(null);
-  const [loginerror, setLoginError] = useState(null);
   const [logedin, setLogedin] = useState(false);
 
   const [credentials, setcredentials] = useState({
@@ -18,6 +17,8 @@ export default function Register() {
     email: "",
     password: "",
     password2: "",
+    phone_no: "",
+    address: "",
   });
 
   const handleChange = (e) => {
@@ -72,19 +73,14 @@ export default function Register() {
         .catch(function (error) {
           console.log(error);
           if (error.response.status === 401) {
-            setLoginError("Email or Password Incorrect");
             swal("Error", "Email or Password Incorrect", "error");
           } else if (error.response.status === 404) {
-            setLoginError("Email or Password Does Not Exist");
             swal("Error", "Email or Password Does Not Exist", "error");
           } else if (error.response.status === 400) {
-            setLoginError("Missing Fields");
             swal("Error", "Missing Fields", "error");
           } else if (error.response.status === 409) {
-            setLoginError("Email or Username Already Exists");
             swal("Error", "Email or Username Already Exists", "error");
           } else {
-            setLoginError("Something Went Wrong. Please Try Again Later");
             swal(
               "Error",
               "Something Went Wrong. Please Try Again Later",
@@ -113,19 +109,12 @@ export default function Register() {
         if (res.data.token != undefined) {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("username", credentials.email.split("@")[0]);
-          setLoginError("Sucessfully Logged in");
+
           route.push("/");
         }
       })
       .catch(function (error) {
         console.log(error);
-        if (error.response.status === 401) {
-          setLoginError("Email or Password Incorrect");
-        } else if (error.response.status === 404) {
-          setLoginError("Email or Password Doesnot Exists");
-        } else {
-          setLoginError("Email or Password Incorrect");
-        }
       });
   };
 
@@ -208,6 +197,30 @@ export default function Register() {
                   required
                 />
                 <label htmlFor="floatingInput">Email address</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="phone_no"
+                  name="phone_no"
+                  value={credentials.phone_no}
+                  onChange={(e) => handleChange(e)}
+                  required
+                />
+                <label htmlFor="floatingInput">Phone Number</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="address"
+                  name="address"
+                  value={credentials.address}
+                  onChange={(e) => handleChange(e)}
+                  required
+                />
+                <label htmlFor="floatingInput">Address</label>
               </div>
               <div className="form-floating">
                 <input

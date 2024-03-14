@@ -10,7 +10,7 @@ export default function ReviewForm({ laborer_id }) {
 
     const token = localStorage.getItem("token");
 
-    await fetch("https://labourlyy.onrender.comapi/reviews/", {
+    await fetch("https://labourlyy.onrender.com/api/reviews/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
