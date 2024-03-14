@@ -101,7 +101,7 @@ function AllJobs() {
         <div className="container">
           <h5 className="fw-bold main-subtitle2">
             {searchResults && searchResults.length} Results found for your
-            serach of workers
+            search of workers
           </h5>
           <div className="row row-cols-1 row-cols-md-4 mt-4">
             {searchResults &&

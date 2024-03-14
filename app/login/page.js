@@ -143,7 +143,7 @@ export default function Login() {
               </button>
               <div className="my-3">
                 <p className="fw-bold text-center">
-                  Don't have a account ?{" "}
+                  Don't have an account ?{" "}
                   <Link href="/signup">Register now</Link>{" "}
                 </p>
               </div>
