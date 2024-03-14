@@ -370,6 +370,12 @@ ul{
     display: inline-block;
     border-bottom: 2px solid #ffccbd;
 }
+.main-subtitle3{
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    display: inline;
+    border-bottom: 2px solid #ffccbd;
+}
 .imghei {
     background:linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3));
     background-size: 200% 100% !important;

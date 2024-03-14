@@ -71,13 +71,13 @@ function AllJobs() {
             {searchResults && searchResults.length} Results found for your
             serach of workers with cost Rs 1000 to Rs 5000 per day
           </h5>
-          <div className="row row-cols-4 mt-4">
+          <div className="row row-cols-1 row-cols-md-4 mt-4">
             {searchResults &&
               searchResults.map((result) => (
                 <div className="col">
                   <a
                     className="text-decoration-none text-dark"
-                    href="/workerdetail"
+                    href={"/workers/" + result.id}
                   >
                     <div className="afte-proj">
                       <div className="d-flex gap-5">

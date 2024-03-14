@@ -25,7 +25,7 @@ const SearchFormHor = ({ onSubmit }) => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="row row-cols-5 gx-2">
+    <form onSubmit={handleSubmit} className="row row-cols-2 row-cols-md-5 gx-2">
       <div className="mb-3 form-floating">
         <select
           type="text"

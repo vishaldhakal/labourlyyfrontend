@@ -27,12 +27,34 @@ function Home() {
         console.error("Error:", error);
       });
   };
+
+  function checkImage(image) {
+    if (image === null) {
+      return "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png";
+    } else {
+      //image contains http return image else add https://labourlyy.onrender.com
+      if (image.includes("http")) {
+        return image;
+      }
+      return "https://labourlyy.onrender.com" + image;
+    }
+  }
+
+  function getexpertise(expertise_level) {
+    //exp level till 5
+    let expertise = "";
+    for (let i = 0; i < expertise_level; i++) {
+      expertise += "⭐ ";
+    }
+    return expertise;
+  }
+
   return (
     <>
       <div className="heroseg">
         <div className="container">
           <div>
-            <div className="row row-cols-2 justify-content-between align-items-center ">
+            <div className="row row-cols-1 row-cols-md-2 justify-content-between align-items-center ">
               <div className="col mt-5 py-3">
                 <h5 className="bef-light display-inline text-dark d-flex gap-2">
                   <span className="bg-white badge text-dark p-2 fs-s shadow fw-normal">
@@ -47,7 +69,7 @@ function Home() {
                   <span className="bg-white badge text-dark p-2 fs-s shadow fw-normal">
                     Cleaning
                   </span>
-                  <span className="bg-white badge text-dark p-2 fs-s shadow fw-normal">
+                  <span className="bg-white badge text-dark p-2 fs-s shadow fw-normal d-none d-md-inline">
                     Welding
                   </span>
                 </h5>
@@ -55,7 +77,7 @@ function Home() {
                   Hiring <span className="text-mine">Superpowers.</span>
                 </h1>
                 <div className="bg-labor mt-5">
-                  <div className="col-9">
+                  <div className="col-12 col-md-9">
                     <SearchForm onSubmit={handleSubmit} />
                   </div>
                 </div>
@@ -69,6 +91,66 @@ function Home() {
         <div className="py-2"></div>
       </div>
       <div className="container">
+        {searchResults && (
+          <h5 className="fw-bold main-subtitle2">
+            {searchResults.length} Results found for your serach of workers with
+            cost Rs 1000 to Rs 5000 per day
+          </h5>
+        )}
+        <div className="row row-cols-1 row-cols-md-4 mt-4">
+          {searchResults &&
+            searchResults.map((result) => (
+              <div className="col">
+                <a
+                  className="text-decoration-none text-dark"
+                  href={"/workers/" + result.id}
+                >
+                  <div className="afte-proj">
+                    <div className="d-flex gap-5">
+                      <div className="img-text">
+                        <p className="m-0">
+                          <span className="d-flex justify-content-between align-items-center fw-bold">
+                            Rs {result.cost_per_day} / Day
+                          </span>
+                        </p>
+                      </div>
+                      <div className="img-text-propertytype">
+                        <p className="m-0">
+                          <span className="d-flex justify-content-between align-items-center fw-bold">
+                            {result.work_category.name}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <img
+                      src={checkImage(result.avatar)}
+                      className="imghei"
+                      alt={result.id}
+                    />
+
+                    <div className="card-textt card">
+                      <p className="mb-0 card-price">{result.name}</p>
+                      <p className="mb-0 text-s2 d-flex align-items-center">
+                        <span className="d-flex justify-content-between align-items-center fw-bold">
+                          Expertise : {getexpertise(result.expertise_level)}
+                        </span>
+                      </p>
+                      <p className="mb-0 text-s">{result.address}</p>
+                      <p className="mb-0 text-s">
+                        {" "}
+                        Working since : {result.working_since} Days
+                      </p>
+                      <button className="btn btn-outline-dark mt-2">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))}
+        </div>
+      </div>
+      <div className="container">
         <div className="mb-5 mt-5 ">
           <div className="row row-cols-2 justify-content-between align-items-center pb-4 align-items-center">
             <div className="col fs-2 fw-bold">
@@ -80,7 +162,7 @@ function Home() {
           </div>
           <div className="row">
             <div className="text-start">
-              <div className="row row-cols-4 g-5">
+              <div className="row row-cols-2 row-cols-md-4 g-2 mx-0 g-md-5">
                 <div className="col rounded-3">
                   <div className="shadow-lg p-3 rounded-3">
                     <img
@@ -154,7 +236,7 @@ function Home() {
                       alt="janitor"
                       className="img-fluid img-small"
                     />
-                    <h5 className="fw-bold">Janitors & cleaners </h5>
+                    <h5 className="fw-bold">Cleaners </h5>
                     <h7>25+ workers available &rarr;</h7>
                   </div>
                 </div>
