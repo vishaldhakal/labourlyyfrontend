@@ -39,26 +39,6 @@ function Home() {
       });
       return;
     }
-
-    fetch("https://labourlyy.onrender.com/api/match-laborers/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        min_cost_per_day: formData.minCost,
-        max_cost_per_day: formData.maxCost,
-        required_expertise: formData.requiredExpertise,
-        work_category: formData.workerType,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setSearchResults(data); // Assuming your API returns data
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
   };
 
   function checkImage(image) {
@@ -203,6 +183,17 @@ function Home() {
                       className="img-fluid img-small"
                     />
                     <h5 className="fw-bold">Masons</h5>
+                    <h7>25+ workers available &rarr;</h7>
+                  </div>
+                </div>
+                <div className="col rounded-3">
+                  <div className="shadow-lg p-3 rounded-3">
+                    <img
+                      src="/123.png"
+                      alt="masons"
+                      className="img-fluid img-small"
+                    />
+                    <h5 className="fw-bold">Tv Reapiring</h5>
                     <h7>25+ workers available &rarr;</h7>
                   </div>
                 </div>
